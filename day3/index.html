@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="item active">
+            <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                alt="">
+            <p class="title">Explore The World</p>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                alt="">
+            <p class="title">Explore The World</p>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                alt="">
+            <p class="title">Explore The World</p>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                alt="">
+            <p class="title">Explore The World</p>
+        </div>
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                alt="">
+            <p class="title">Explore The World</p>
+        </div>
+    </div>
+    <script>
+        const items = document.querySelectorAll('.container .item')
+        console.log(items)
+        let index = 0;
+        let check = true;
+
+        // them va xoa class active 
+        function handle() {
+            if (index >= items.length - 1) {
+                check=false;
+                index = items.length-1;
+            }
+            if (index <= 0) {
+                check = true;
+                index = 0;
+            }
+            items.forEach(element => {
+                element.classList.remove('active')
+            })
+            items[index].classList.add('active')
+        }
+
+        items.forEach((e, i) => {
+            e.addEventListener('click', () => {
+                index = i
+                    handle()
+            })
+        })
+        // setTimeout(() => {
+        //     alert('time out')
+        // }, 1000);
+
+        setInterval(() => {
+            if(check){
+                index++;
+            }else {
+                index--;
+            }
+            handle();
+        }, 2000)
+        // bat dong bo , dong bo
+    </script>
+</body>
+
+</html>
